@@ -2,7 +2,9 @@ package com.anhonestobserver.springbootneo4j.services;
 
 import com.anhonestobserver.springbootneo4j.models.Course;
 import com.anhonestobserver.springbootneo4j.repositories.CourseRepository;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -16,6 +18,10 @@ public class CourseService {
 
     public List<Course> getAllCourses(){
         return courseRepository.findAll();
+    }
+
+    public Course getCourseByIdentifier(String identifier){
+        return courseRepository.findCourseByIdentifier(identifier).orElseThrow(()->new ResponseStatusException(HttpStatusCode.valueOf(404)));
     }
 
 }
