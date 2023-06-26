@@ -3,6 +3,10 @@ package com.anhonestobserver.springbootneo4j.models;
 import org.springframework.data.neo4j.core.schema.GeneratedValue;
 import org.springframework.data.neo4j.core.schema.Id;
 import org.springframework.data.neo4j.core.schema.Node;
+import org.springframework.data.neo4j.core.schema.Relationship;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Node
 public class Course {
@@ -11,6 +15,10 @@ public class Course {
     private String identifier;
     private String title;
     private String teacher;
+
+    // When getting a course, this adds the lessons to it. Used with getLessons method below. Every time you query the courses, you get the relationship back. Instead of this, do a custom cypher query in the LessonRepository
+//    @Relationship( type = "BELONGS_TO", direction = Relationship.Direction.INCOMING)
+//    private List<Lesson> lessons = new ArrayList<>();
 
     public Course() {
     }
@@ -38,4 +46,9 @@ public class Course {
     public void setTeacher(String teacher) {
         this.teacher = teacher;
     }
+
+    // asdf or get doesn't work, but works if it's getASDF or getLessons. Instead of this, do a custom cypher query in the LessonRepository.
+//    public List<Lesson> getLessons() {
+//        return lessons;
+//    }
 }
