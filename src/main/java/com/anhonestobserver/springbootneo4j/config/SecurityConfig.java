@@ -32,7 +32,7 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable) // can disable because it's an API?
                 .cors(Customizer.withDefaults())
                 .authorizeHttpRequests(auth->auth
-                        .requestMatchers("api/v1/auth/me") // protect requests to this endpoint and pass it to neoUserDetailsService below. It uses the User model's getPassword.
+                        .requestMatchers("api/v1/auth/me","api/v1/enrollments/**") // protect requests to this endpoint and pass it to neoUserDetailsService below. It uses the User model's getPassword. ** means any route.
                         .authenticated()
                         .anyRequest()
                         .permitAll()
