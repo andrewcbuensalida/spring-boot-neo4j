@@ -1,3 +1,4 @@
+// DTOs are what is sent in the response
 package com.anhonestobserver.springbootneo4j.objects;
 
 import com.anhonestobserver.springbootneo4j.models.Lesson;
