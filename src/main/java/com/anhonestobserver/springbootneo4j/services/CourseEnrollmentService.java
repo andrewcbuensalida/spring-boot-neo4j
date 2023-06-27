@@ -23,6 +23,7 @@ public class CourseEnrollmentService {
         return userRepository.findEnrollmentStatus(username,identifier);
     }
     public CourseEnrollmentQueryResult enrollIn(String username, String identifier){
+        // TODO: make sure user isn't already enrolled in the course
         return userRepository.createEnrollmentRelationship(username,identifier);
     }
 

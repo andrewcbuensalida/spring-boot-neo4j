@@ -34,6 +34,7 @@ public class CourseEnrollmentController {
                 course -> {
                     CourseDTO responseCourse = new CourseDTO(course.getIdentifier(), course.getTitle(), course.getTeacher());
                     responseCourse.setLessons(lessonService.getAllLessonsByCourseIdentifier(course.getIdentifier()));
+                    responseCourse.setEnrolled(true);
                     return responseCourse;
                 }
         ).collect(Collectors.toList());
