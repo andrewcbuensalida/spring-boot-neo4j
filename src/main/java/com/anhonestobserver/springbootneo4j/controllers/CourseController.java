@@ -30,11 +30,11 @@ public class CourseController {
     @GetMapping("/")
     public ResponseEntity<List<CourseDTO>> courseIndex(){
         List<Course> courses = courseService.getAllCourses();
-        List<CourseDTO> responseCourses = courses.stream().map((course -> {
+        List<CourseDTO> responseCourses = courses.stream().map(course -> {
             CourseDTO responseCourse = new CourseDTO(course.getIdentifier(),course.getTitle(),course.getTeacher());
             responseCourse.setLessons(lessonService.getAllLessonsByCourseIdentifier(course.getIdentifier()));
             return responseCourse;
-        })).collect(Collectors.toList());
+        }).collect(Collectors.toList());
         return new ResponseEntity<>(responseCourses, HttpStatus.OK);
     }
 
