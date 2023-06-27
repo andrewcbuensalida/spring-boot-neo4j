@@ -1,4 +1,4 @@
-// Controllers are responsible for taking and giving data
+// Controllers are responsible for taking and giving data. Flow is controllers -> services -> repositories.
 package com.anhonestobserver.springbootneo4j.controllers;
 
 import com.anhonestobserver.springbootneo4j.models.Course;
