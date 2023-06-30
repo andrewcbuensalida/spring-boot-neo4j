@@ -26,3 +26,29 @@ View > Tool Windows > Maven > Expand <Project Folder> > Lifecycle > package
 This will generate a .jar file in the Target folder.
 To run .jar, 
   java -jar path/to/jar
+
+
+============================================
+To deploy to ec2
+Create an ec2
+Change the advanced security settings of the pem
+https://www.youtube.com/watch?v=kzLRxVgos2M
+Make sure owner is you, and only you have full control
+  ssh -i "neo4j-university-pem.pem" ec2-user@ec2-18-144-53-10.us-west-1.compute.amazonaws.com
+
+Install java on ec2
+sudo yum update
+https://docs.aws.amazon.com/corretto/latest/corretto-20-ug/generic-linux-install.html#rpm-linux-install-instruct
+  sudo rpm --import https://yum.corretto.aws/corretto.key
+  sudo curl -L -o /etc/yum.repos.d/corretto.repo https://yum.corretto.aws/corretto.repo
+  sudo yum install -y java-20-amazon-corretto-devel
+To check if it installed
+  java -version
+
+Copy jar from local to ec2
+  scp -i "neo4j-university-pem.pem" C:\swe\code\neo4j-springboot-react\spring-boot-neo4j-generated-from-initializr\spring-boot-neo4j\target\spring-boot-neo4j-0.0.1-SNAPSHOT.jar ec2-user@18.144.53.10:/home/ec2-user
+
+Run app with
+  java -jar spring-boot-neo4j-0.0.1-SNAPSHOT.jar
+
+Point front-end to ip address of ec2
