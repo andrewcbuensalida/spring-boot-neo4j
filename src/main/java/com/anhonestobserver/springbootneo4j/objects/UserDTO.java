@@ -1,14 +1,25 @@
 package com.anhonestobserver.springbootneo4j.objects;
 
+import java.util.List;
+
 public class UserDTO {
     private String name;
     private String username;
     private String roles;
+    private List<String> coursesIdentifiers;
 
     public UserDTO(String name, String username, String roles) {
         this.name = name;
         this.username = username;
         this.roles = roles;
+    }
+
+    public List<String> getCoursesIdentifiers() {
+        return coursesIdentifiers;
+    }
+
+    public void setCoursesIdentifiers(List<String> coursesIdentifiers) {
+        this.coursesIdentifiers = coursesIdentifiers;
     }
 
     public String getName() {

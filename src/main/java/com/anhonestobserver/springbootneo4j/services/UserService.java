@@ -6,6 +6,7 @@ import com.anhonestobserver.springbootneo4j.requests.CreateUserRequest;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -17,7 +18,9 @@ public class UserService {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
     }
-
+    public List<User> getUsers() {
+        return userRepository.getUsers();
+    }
     public User createUser(CreateUserRequest request){
 //        if(userRepository.findUserByUsername(request.getUsername()).isEmpty()){
             User user = new User();
