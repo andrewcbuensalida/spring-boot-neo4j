@@ -48,7 +48,6 @@ To check if it installed
 Copy jar from local to ec2
   scp -i "neo4j-university-pem.pem" C:\swe\code\neo4j-springboot-react\spring-boot-neo4j-generated-from-initializr\spring-boot-neo4j\target\spring-boot-neo4j-0.0.1-SNAPSHOT.jar ec2-user@18.144.53.10:/home/ec2-user
 
-Run app with
-  java -jar spring-boot-neo4j-0.0.1-SNAPSHOT.jar
-
+To run app in background
+  nohup java -jar spring-boot-neo4j-0.0.1-SNAPSHOT.jar &
 Point front-end to ip address of ec2
