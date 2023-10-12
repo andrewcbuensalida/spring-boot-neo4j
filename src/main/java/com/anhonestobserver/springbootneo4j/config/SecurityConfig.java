@@ -25,7 +25,7 @@ public class SecurityConfig {
     public SecurityConfig(NeoUserDetailsService neoUserDetailsService) {
         this.neoUserDetailsService = neoUserDetailsService;
     }
-    // Bean annotation is so spring boot will instantiate this class. By default, the spring security uses a randomly generated user. We don't want that. We want a user from our database, that's why we have this code. Also, by default, it requires authentication for every request. We don't want that either.
+    // Bean annotation is so spring boot will instantiate this class. By default, the spring security uses a randomly generated user. We don't want that. We want a user from our database, that's why we have this code. Also, by default, it requires authentication for every request. We don't want that either. Instead of @Bean, could use @Component but not in the config file.
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception{
         return httpSecurity.sessionManagement(session->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

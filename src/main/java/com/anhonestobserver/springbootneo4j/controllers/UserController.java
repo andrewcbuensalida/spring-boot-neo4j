@@ -25,7 +25,7 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<UserDTO> signUp(@RequestBody CreateUserRequest request){ // request body comes from insomnia json
+    public ResponseEntity<UserDTO> signUp(@RequestBody CreateUserRequest request){ // request body comes from insomnia json. @RequestBody retrieves HTTP request body and converts to Java object CreateUserRequest.
         User user = userService.createUser(request);
 
         UserDTO responseUser = new UserDTO(user.getName(), user.getUsername(), user.getRoles());

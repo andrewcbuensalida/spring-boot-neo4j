@@ -17,6 +17,7 @@ import java.security.Principal;
 import java.util.List;
 import java.util.stream.Collectors;
 
+// @RestController is a combination of @Controller and @ResponseBody
 @RestController
 @RequestMapping("/api/v1/courses")
 public class CourseController {
@@ -30,7 +31,7 @@ public class CourseController {
         this.courseEnrollmentService = courseEnrollmentService;
     }
 
-    @GetMapping("/")
+    @GetMapping("/") // @GetMapping is a combination of @RequestMapping with method = RequestMethod.GET. Can specify multiple urls with the value named argument
     public ResponseEntity<List<CourseDTO>> courseIndex(Principal principal){
         List<Course> courses = courseService.getAllCourses();
         List<CourseDTO> responseCourses = courses.stream().map(course -> {
@@ -47,7 +48,7 @@ public class CourseController {
     }
 
     @GetMapping("/{identifier}")
-    public ResponseEntity<CourseDTO> courseDetails(@PathVariable String identifier){
+    public ResponseEntity<CourseDTO> courseDetails(@PathVariable String identifier){ // @PathVariable binds {identifier} to the parameter. If the parameter is a different name, have to pass the correct name in the @PathVariable argument.
         Course course = courseService.getCourseByIdentifier(identifier);
 
         CourseDTO responseCourse = new CourseDTO(course.getIdentifier(),course.getTitle(),course.getTeacher()); // identifier and course.getIdentifier() seem to be the same

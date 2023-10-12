@@ -51,3 +51,9 @@ Copy jar from local to ec2
 To run app in background
   nohup java -jar spring-boot-neo4j-0.0.1-SNAPSHOT.jar &
 Point front-end to ip address of ec2
+
+==============================================
+
+service is for business logic
+repositories is for database logic
+controller is for http request logic
