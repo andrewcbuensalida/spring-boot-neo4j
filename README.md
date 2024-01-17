@@ -1,4 +1,5 @@
 https://www.youtube.com/watch?v=_IgbB24scLI&t=222s
+https://lucid.app/lucidchart/invitations/accept/inv_6ed0d88f-5680-4ec3-8aa4-7349e5cd2325
 
 scripts to create dummy data
 https://github.com/GavinLonDigital/Neo4jCourseScripts
