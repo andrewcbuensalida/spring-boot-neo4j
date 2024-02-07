@@ -1,4 +1,5 @@
 https://www.youtube.com/watch?v=_IgbB24scLI&t=222s
+https://lucid.app/lucidchart/invitations/accept/inv_6ed0d88f-5680-4ec3-8aa4-7349e5cd2325
 
 scripts to create dummy data
 https://github.com/GavinLonDigital/Neo4jCourseScripts
@@ -33,7 +34,7 @@ To deploy to ec2
 Create an ec2
 Change the advanced security settings of the pem
 https://www.youtube.com/watch?v=kzLRxVgos2M
-Make sure owner is you, and only you have full control
+Make sure owner is you, and only you have full control. Also run cmd as admin.
   ssh -i "neo4j-university-pem.pem" ec2-user@ec2-18-144-53-10.us-west-1.compute.amazonaws.com
 
 Install java on ec2
