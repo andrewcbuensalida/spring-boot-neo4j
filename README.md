@@ -57,3 +57,4 @@ Point front-end to ip address of ec2
 service is for business logic
 repositories is for database logic
 controller is for http request logic
+test
